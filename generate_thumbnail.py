@@ -7,6 +7,9 @@ from datetime import datetime
 WIDTH = 1280
 HEIGHT = 720
 
+# ---- CONFIGURABLE TEXT ----
+TITLE = "KLEINER'82"
+
 
 def get_font(size, bold=False):
     font_paths_bold = [
@@ -135,13 +138,9 @@ if __name__ == '__main__':
     font_label = get_font(22, bold=True)
     draw.text((text_x + 2, 125), "THE COMPLETE GUIDE", font=font_label, fill=cyan)
 
-    # Main title - "CLAUDE" with glow
+    # Main title with glow
     font_huge = get_font(130, bold=True)
-    img = draw_glow_text(img, (text_x - 5, 170), "CLAUDE", font_huge, white, (40, 180, 255), glow_radius=10)
-    draw = ImageDraw.Draw(img)
-
-    # Main title - "CODE" with amber glow
-    img = draw_glow_text(img, (text_x - 5, 300), "CODE", font_huge, amber, (255, 160, 40), glow_radius=10)
+    img = draw_glow_text(img, (text_x - 5, 220), TITLE, font_huge, white, (40, 180, 255), glow_radius=10)
     draw = ImageDraw.Draw(img)
 
     # Subtitle with slight spacing feel
