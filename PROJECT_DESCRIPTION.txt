@@ -1,0 +1,129 @@
+================================================================================
+  SYNTHWAVE THUMBNAIL GENERATOR FOR KLEINER'82
+  Full Project Description & Usage Guide
+================================================================================
+
+OVERVIEW
+--------
+A Python-based YouTube thumbnail generator built for the Kleiner'82 project.
+The tool generates high-quality 1280x720 PNG thumbnails in multiple visual
+styles using only the Pillow imaging library — no external design tools required.
+
+All rendering is done programmatically: gradients, glows, perspective grids,
+mountain silhouettes, neon text effects, scanlines, VHS noise, chromatic
+aberration, and vignettes are all drawn pixel by pixel in code.
+
+
+SCRIPTS
+-------
+
+1. synthwave_thumbnail.py — Retro Synthwave Style
+   ------------------------------------------------
+   Generates a classic 80s synthwave aesthetic thumbnail featuring:
+   - Retro sunset sky gradient (deep purple → hot pink → orange)
+   - Glowing retro sun with VHS stripe cutouts
+   - Layered mountain silhouettes with pink edge glow
+   - Neon cyan perspective grid (vanishing point horizon)
+   - Dark purple ground layer beneath the grid
+   - Neon pink band name with outer glow
+   - Neon cyan track title with outer glow
+   - Chrome yellow subtitle with hot magenta decorative lines
+   - Scanline overlay for CRT effect
+   - VHS noise grain
+   - Subtle chromatic aberration (RGB channel shift)
+   - Edge vignette
+
+   Color palette:
+     Neon Pink     #FF2896
+     Neon Cyan     #00FFFF
+     Hot Magenta   #FF00B4
+     Chrome Yellow #FFDC3C
+     Dark BG       #0A0219
+
+   Run:
+     python synthwave_thumbnail.py
+
+
+2. synthwave_vaporwave.py — Vaporwave Style
+   ------------------------------------------
+   A vaporwave color variation of the synthwave script featuring:
+   - Dreamy sky gradient (deep navy → purple → soft pink)
+   - Peach-to-lavender sun with VHS stripe cutouts
+   - Mountain silhouettes with soft pastel pink edge glow
+   - Lavender perspective grid
+   - Pastel pink band name glow
+   - Soft teal track title glow
+   - Peach subtitle with soft magenta decorative lines
+   - Same post-processing effects (scanlines, noise, aberration, vignette)
+
+   Color palette:
+     Pastel Pink   #FF82C8
+     Soft Teal     #64DCD2
+     Lavender      #C882FF
+     Soft Magenta  #DC50C8
+     Peach         #FFB899
+     Dark BG       #080516
+
+   Run:
+     python synthwave_vaporwave.py
+
+
+3. generate_thumbnail.py — Futuristic AI/Tech Style
+   ---------------------------------------------------
+   Generates a futuristic tech-themed thumbnail featuring:
+   - Background photo composited onto a dark blue-black canvas
+   - Left-to-right gradient fade for clean text area
+   - Top, bottom, and side vignettes
+   - Cyan/blue tint overlay for a tech feel
+   - Vertical accent bar and horizontal accent line
+   - Large title text ("CLAUDE" / "CODE") with soft glow and drop shadow
+   - Subtitle text with inline color accent
+   - Rounded pill badge with shadow
+
+   Run:
+     python generate_thumbnail.py
+
+
+REQUIREMENTS
+------------
+  Python 3.8+
+  Pillow
+
+  Install:
+    pip install Pillow
+
+  Font: Uses system fonts from C:/Windows/Fonts (Windows only).
+  Falls back to Pillow's built-in bitmap font if none are found.
+
+
+OUTPUT
+------
+  All scripts save output to:
+    generated-images/<YYYY-MM-DD_HH-MM-SS-microseconds>/
+
+  Each run gets its own uniquely timestamped folder, so no outputs are
+  ever overwritten even when running multiple times in rapid succession.
+
+  Format:   PNG (lossless)
+  Size:     1280 x 720 pixels (standard YouTube thumbnail resolution)
+
+
+CONFIGURATION
+-------------
+  Edit the constants at the top of each synthwave script to change the text:
+
+  synthwave_thumbnail.py / synthwave_vaporwave.py:
+    BAND_NAME   = "KLEINER'82"
+    TRACK_TITLE = "NEON SHADOWS"
+    SUBTITLE    = "SYNTHWAVE"   # or "VAPORWAVE"
+
+  generate_thumbnail.py:
+    Edit the draw.text() calls directly in the __main__ block.
+
+
+REPOSITORY
+----------
+  https://github.com/turrican128/Synthwave_generator_for_kleiner82
+
+
+================================================================================
