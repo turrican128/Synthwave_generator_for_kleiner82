@@ -1,0 +1,6 @@
+generated-images/
+thumbnail.png
+.idea/
+.claude/
+__pycache__/
+*.pyc
