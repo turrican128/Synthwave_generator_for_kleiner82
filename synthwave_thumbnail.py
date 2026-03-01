@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
+from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance, ImageChops
 import os
 import math
 import random
@@ -11,10 +11,8 @@ HEIGHT = 720
 # ---- SYNTHWAVE COLOR PALETTE ----
 NEON_PINK = (255, 40, 150)
 NEON_CYAN = (0, 255, 255)
-NEON_PURPLE = (180, 60, 255)
 HOT_MAGENTA = (255, 0, 180)
 CHROME_YELLOW = (255, 220, 60)
-DEEP_PURPLE = (20, 5, 40)
 DARK_BG = (10, 2, 25)
 
 # ---- CONFIGURABLE TEXT ----
@@ -76,7 +74,6 @@ def draw_neon_text(img, pos, text, font, color, glow_radius=12, glow_intensity=8
 def chromatic_aberration(img, offset=3):
     r, g, b = img.split()
     # Shift red channel left, blue channel right
-    from PIL import ImageChops
     r = ImageChops.offset(r, -offset, 0)
     b = ImageChops.offset(b, offset, 0)
     return Image.merge('RGB', (r, g, b))
@@ -352,7 +349,7 @@ if __name__ == '__main__':
 
     # ---- SAVE ----
     base_dir = os.path.join(os.path.dirname(__file__), "generated-images")
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
     output_dir = os.path.join(base_dir, timestamp)
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, "synthwave_thumbnail.png")

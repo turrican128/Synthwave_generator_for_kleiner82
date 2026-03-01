@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
+from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance, ImageChops
 import os
 import math
 import random
@@ -14,7 +14,6 @@ SOFT_TEAL = (100, 220, 210)
 LAVENDER = (200, 130, 255)
 SOFT_MAGENTA = (220, 80, 200)
 PEACH = (255, 184, 153)
-DEEP_NAVY = (8, 5, 22)
 DARK_BG = (8, 5, 22)
 
 # ---- CONFIGURABLE TEXT ----
@@ -74,7 +73,6 @@ def draw_neon_text(img, pos, text, font, color, glow_radius=12, glow_intensity=8
 
 def chromatic_aberration(img, offset=3):
     r, g, b = img.split()
-    from PIL import ImageChops
     r = ImageChops.offset(r, -offset, 0)
     b = ImageChops.offset(b, offset, 0)
     return Image.merge('RGB', (r, g, b))
@@ -337,7 +335,7 @@ if __name__ == '__main__':
 
     # ---- SAVE ----
     base_dir = os.path.join(os.path.dirname(__file__), "generated-images")
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
     output_dir = os.path.join(base_dir, timestamp)
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, "vaporwave_thumbnail.png")

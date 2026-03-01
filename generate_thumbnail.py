@@ -177,7 +177,7 @@ if __name__ == '__main__':
 
     # Save
     base_dir = os.path.join(os.path.dirname(__file__), "generated-images")
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
     output_dir = os.path.join(base_dir, timestamp)
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, "thumbnail.png")
